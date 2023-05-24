@@ -38,7 +38,6 @@ TickTwo::TickTwo(fptr callback, uint32_t timer, uint32_t repeat, resolution_t re
 TickTwo::~TickTwo() {}
 
 void TickTwo::start() {
-	log_d("TickTwo::start ---");
 	if (callback == NULL) return;
 	if (resolution == MILLIS) lastTime = millis();
 	else lastTime = micros();
@@ -48,7 +47,6 @@ void TickTwo::start() {
 	}
 
 void TickTwo::resume() {
-	log_d("TickTwo::resume ---");
 	if (callback == NULL) return;
 	if (resolution == MILLIS) lastTime = millis() - min(timer,diffTime);
 	else lastTime = micros() - diffTime;
